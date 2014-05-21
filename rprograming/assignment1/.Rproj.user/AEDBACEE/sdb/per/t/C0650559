@@ -1,0 +1,17 @@
+{
+    "contents" : "complete <- function(directory, id = 1:332) {\n  ## 'directory' is a character vector of length 1 indicating\n  ## the location of the CSV files\n  \n  ## 'id' is an integer vector indicating the monitor ID numbers\n  ## to be used\n  \n  ## Return a data frame of the form:\n  ## id nobs\n  ## 1  117\n  ## 2  1041\n  ## ...\n  ## where 'id' is the monitor ID number and 'nobs' is the\n  ## number of complete cases\n  \n  files <- list.files(directory, pattern=\"*.csv\", full.names=T)\n  data <- lapply(files[id], function(x) read.csv(x, header=T))\n  df <- do.call(rbind.data.frame, data)\n  \n  df.table <- data.frame(c())\n  \n  for (i in id) {\n    s <- sum(complete.cases(df[df$ID == i,]))\n    df.table <- rbind(df.table,c(i, s))\n  }\n  \n  names(df.table) <- c(\"id\", \"nobs\")\n  \n  df.table$nobs <- as.integer(df.table$nobs)\n  \n  df.table\n}",
+    "created" : 1400613801194.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2769066146",
+    "id" : "C0650559",
+    "lastKnownWriteTime" : 1400626733,
+    "path" : "C:/Users/blawrence/Documents/GitHub/datasciencecoursera/rprograming/assignment1/complete.R",
+    "project_path" : "complete.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

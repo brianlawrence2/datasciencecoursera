@@ -1,0 +1,17 @@
+{
+    "contents" : "files <- list.files(\"specdata\", pattern=\"*.csv\", full.names=T)\ndata <- lapply(files[1:332], function(x) read.csv(x, header=T))\n",
+    "created" : 1400618580210.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "2414128383",
+    "id" : "4EF9602",
+    "lastKnownWriteTime" : 1400618451,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
